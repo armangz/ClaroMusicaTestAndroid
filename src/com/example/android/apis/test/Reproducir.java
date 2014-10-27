@@ -45,18 +45,18 @@ public class Reproducir extends ActivityInstrumentationTestCase2<Activity> {
 	public void testRecorded() throws Exception {
 		try {
 			solo.waitForActivity("ResponsiveUIFixedActivity");
-			
+			//Selección de la primer lista
 			solo.clickInList(1);
 			solo.sleep(5000);
-			Log.d("TAG", "Selección de Lista");
-			
+			//Selección de la prmiera canción de la lista
 			solo.clickInList(1);
 			solo.sleep(10000);
 			Log.d("TAG", "Selección de Lista");
-			
+			//Abrir reproductor completo
 			solo.clickInList(4);
+			//Tiempr de reproduccion de 3:16 segundos 
 			solo.sleep(190000);
-			
+			//Adelantar Canción
 			assertTrue(
 					"Wait for image (id: com.telcel.imk.R.id.btn_player_opened_proxima) failed.",
 					solo.waitForImageById(
@@ -64,7 +64,68 @@ public class Reproducir extends ActivityInstrumentationTestCase2<Activity> {
 							20000));
 			solo.clickOnImage((ImageView) solo
 					.findViewById("com.telcel.imk.R.id.btn_player_opened_proxima"));
-			solo.sleep(14900);
+			solo.sleep(10000);
+			
+			//Atras Canción
+			assertTrue(
+					"Wait for image (id: com.telcel.imk:id/btn_player_opened_voltar) failed.",
+					solo.waitForImageById(
+							"com.telcel.imk:id/btn_player_opened_voltar",
+							20000));
+			solo.clickOnImage((ImageView) solo
+					.findViewById("com.telcel.imk:id/btn_player_opened_voltar"));
+			solo.sleep(10000);
+			//Pausar
+			assertTrue(
+					"Wait for image (id: com.telcel.imk:id/btn_player_opened_play_pause) failed.",
+					solo.waitForImageById(
+							"com.telcel.imk:id/btn_player_opened_play_pause",
+							5000));
+			solo.clickOnImage((ImageView) solo
+					.findViewById("com.telcel.imk:id/btn_player_opened_play_pause"));
+			solo.sleep(5000);
+			
+			//Repetir Lista
+			assertTrue(
+					"Wait for image (id: com.telcel.imk:id/btn_player_opened_repeat) failed.",
+					solo.waitForImageById(
+							"com.telcel.imk:id/btn_player_opened_repeat",
+							5000));
+			solo.clickOnImage((ImageView) solo
+					.findViewById("com.telcel.imk:id/btn_player_opened_repeat"));
+			solo.sleep(5000);
+			
+			//Repetir Canción
+			assertTrue(
+					"Wait for image (id: com.telcel.imk:id/btn_player_opened_repeat) failed.",
+					solo.waitForImageById(
+							"com.telcel.imk:id/btn_player_opened_repeat",
+							5000));
+			solo.clickOnImage((ImageView) solo
+					.findViewById("com.telcel.imk:id/btn_player_opened_repeat"));
+			solo.sleep(5000);
+			
+			//Shuffle
+			assertTrue(
+					"Wait for image (id: com.telcel.imk:id/btn_player_opened_shuffle) failed.",
+					solo.waitForImageById(
+							"com.telcel.imk:id/btn_player_opened_shuffle",
+							5000));
+			solo.clickOnImage((ImageView) solo
+					.findViewById("com.telcel.imk:id/btn_player_opened_shuffle"));
+			solo.sleep(5000);
+			
+			//Adelantar Canción
+			assertTrue(
+					"Wait for image (id: com.telcel.imk.R.id.btn_player_opened_proxima) failed.",
+					solo.waitForImageById(
+							"com.telcel.imk.R.id.btn_player_opened_proxima",
+							20000));
+			solo.clickOnImage((ImageView) solo
+					.findViewById("com.telcel.imk.R.id.btn_player_opened_proxima"));
+			solo.sleep(10000);
+			
+			
 			
 		} catch (AssertionFailedError e) {
 			solo.fail(
