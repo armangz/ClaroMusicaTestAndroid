@@ -56,7 +56,15 @@ public class Reproducir extends ActivityInstrumentationTestCase2<Activity> {
 			
 			solo.clickInList(4);
 			solo.sleep(190000);
-
+			
+			assertTrue(
+					"Wait for image (id: com.telcel.imk.R.id.btn_player_opened_proxima) failed.",
+					solo.waitForImageById(
+							"com.telcel.imk.R.id.btn_player_opened_proxima",
+							20000));
+			solo.clickOnImage((ImageView) solo
+					.findViewById("com.telcel.imk.R.id.btn_player_opened_proxima"));
+			solo.sleep(14900);
 			
 		} catch (AssertionFailedError e) {
 			solo.fail(
